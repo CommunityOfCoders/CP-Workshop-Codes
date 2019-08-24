@@ -63,3 +63,40 @@ int main() {
 	return 0;
 }
 ```
+## Reverse words in a string
+```
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    
+    int t;
+    cin >> t;
+    
+    while (t--) {
+        // input
+        string s; cin >> s;
+        
+        // reverse given string
+        reverse(s.begin(), s.end());
+        
+        // reversing the words
+        int start = 0;
+        for (int i = 0; i < s.length(); i++) {
+            
+            if (s[i] == '.') {
+                reverse(s.begin() + start, s.begin() + i);
+                start = i + 1;
+            }
+        }
+        
+        // reversing the last word;
+        reverse(s.begin() + start, s.end());
+        
+        // output
+        cout << s << endl;
+    }
+    
+	return 0;
+}
+```
