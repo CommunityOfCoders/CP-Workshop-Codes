@@ -1,7 +1,7 @@
 # CP-Workshop-Codes
 
 ## Is Palindrome
-```
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -37,7 +37,7 @@ int main() {
 ```
 
 ## Reverse a string
-```
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -64,7 +64,7 @@ int main() {
 }
 ```
 ## Reverse words in a string
-```
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -102,7 +102,7 @@ int main() {
 ```
 
 ## Paran Matching (only one type of brace)
-```
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -128,7 +128,7 @@ int main() {
 ```
 
 ## Paran Matching (Multiple)
-```
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
