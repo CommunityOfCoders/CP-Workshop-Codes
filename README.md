@@ -161,3 +161,33 @@ int main() {
     }
 }
 ```
+## Pair sum
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t; cin >> t;
+    while (t--) {
+        int n, sum; cin >> n >> sum;
+        int arr[n];
+        for (int i = 0; i < n; i++) {
+            cin >> arr[i];
+        }
+        bool found = false;
+        sort(arr, arr + n);
+        int i = 0, j = n - 1;
+        while (i < j) {
+            if (arr[i] + arr[j] == sum) {
+                found = true;
+                break;
+            }
+            if (arr[i] + arr[j] > sum) j--;
+            else i++;
+        }
+        if (found) cout << "Yes" << endl;
+        else cout << "No" << endl;
+    }
+	return 0;
+}
+```
