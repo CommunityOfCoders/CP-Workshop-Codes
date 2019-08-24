@@ -1,6 +1,6 @@
 # CP-Workshop-Codes
 
-## Check if it is palindrome
+## Is Palindrome
 ```
 #include <bits/stdc++.h>
 using namespace std;
@@ -101,7 +101,7 @@ int main() {
 }
 ```
 
-## Is Palindrome (only one type of brace)
+## Paran Matching (only one type of brace)
 ```
 #include <bits/stdc++.h>
 using namespace std;
@@ -123,6 +123,41 @@ int main() {
 
         if (count == 0) cout << "True" << endl;
         else cout << "False" << endl;
+    }
+}
+```
+
+## Paran Matching (Multiple)
+```
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t; cin >> t;
+    while (t--) {
+        string s; cin >> s;
+        
+        // CREATING A STACK!!!!!!! YAY YAY YAY --- WE DID NOT IMPLEMENT THISSS
+        stack<char> st;
+        
+        bool is_true = true;
+        for (int i = 0; i < s.length(); i++) {
+            if (s[i] == '(' or s[i] == '[' or s[i] == '{') {
+                st.push(s[i]);
+            } else if (s[i] == ')' and !st.empty() and st.top() == '(') {
+                st.pop();
+            } else if (s[i] == ']' and !st.empty() and st.top() == '[') {
+                st.pop();
+            } else if (s[i] == '}' and !st.empty() and st.top() == '{') {
+                st.pop();
+            } else {
+                is_true = false;
+                break;
+            }
+        }
+        
+        if (is_true and st.empty()) cout << "balanced" << endl;
+        else cout << "not balanced" << endl;
     }
 }
 ```
