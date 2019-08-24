@@ -191,3 +191,43 @@ int main() {
 	return 0;
 }
 ```
+
+## Sort array of 0, 1, 2
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	//code
+	int T;
+	cin>>T;
+	while(T--)
+	{
+	    int N;
+	    cin>>N;
+	    int A[N];
+	    for(int i = 0; i < N; i++)
+	        cin>>A[i];
+	    int low = 0, mid = 0, high = N-1;
+	    while(mid <= high)
+	    {
+	        switch(A[mid])
+	        { 
+	            case 0:
+	                swap(A[low++],A[mid++]);
+	                break;
+	            case 1:
+	                mid++;
+	                break;
+	            case 2:
+	                swap(A[mid],A[high--]);
+	                break;
+	        }
+	    }
+	    for(int i = 0; i < N; i++)
+	        cout<<A[i]<<" ";
+	    cout<<endl;
+	}
+	return 0;
+}
+```
