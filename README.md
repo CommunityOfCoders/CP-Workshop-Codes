@@ -335,6 +335,47 @@ int main() {
     return 0;
 }
 ```
+## Anagram (Hashtable Solution)
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    std::ios_base::sync_with_stdio(false); //to reduce time to some extent
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int t;
+    cin >> t;
+    while(t--) {
+        string s1, s2;
+        cin>>s1>>s2;
+        if(s1.length() != s2.length()) {
+            cout<<"NO"<<endl;
+            continue;
+        }
+        bool isAna = true;
+        unordered_map<char, int> m;
+        for(int i=0;i<s1.length();i++) {
+            m[s1[i]]++;
+        }
+        for(int i=0;i<s2.length();i++) {
+            if(m[s2[i]] == 0) {
+                isAna = false;
+                break;
+            } else {
+                m[s2[i]]--;
+            }
+        }
+        if(isAna) {
+            cout<<"YES"<<endl;
+        } else {
+            cout<<"NO"<<endl;
+        }
+    }
+    return 0;
+}
+
+```
 # Recursion
 ## Binary Search
 ```cpp
@@ -529,7 +570,7 @@ int main() {
 ```
 ## Word Break (Iterative solution)
 ```cpp
-#inlcude <bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
