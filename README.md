@@ -301,6 +301,40 @@ int main() {
 	return 0;
 }
 ```
+# Greedy + Sorting
+## Min cost Rope
+```cp
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    
+    while(t--) {
+        int count, first, second;
+        long long int result = 0;
+        cin >> count;
+        
+        priority_queue< int, vector<int>, greater<int> > pq;
+        for(int i=0; i<n; i++){
+            int ropeLen;
+            scanf("%d", &ropeLen);
+            pq.push(ropeLen);
+        }
+        
+        while(pq.size() > 1) {
+            first= pq.top(); pq.pop();
+            second = pq.top(); pq.pop();
+            result += (first+second);
+            pq.push(first+second);
+        }
+        
+        cout << result << endl;
+    }
+    return 0;
+}
+```
 ## Anagram (Sorting solution)
 ```cpp
 #include <bits/stdc++.h>
