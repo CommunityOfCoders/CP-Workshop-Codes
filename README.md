@@ -302,7 +302,36 @@ int main() {
 }
 ```
 # Dynamic Programming
-## Word Break (Recursion + Memoization solution)
+## Longest Increasing Sub (Iterative Solution)
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t, n; cin >> t;
+    while (t--) {
+        cin >> n;
+        int arr[n];
+        for (int i = 0; i < n; i++) cin >> arr[i];
+        
+        int dp[n];
+        dp[0] = 1;
+        for (int i = 1; i < n; i++) {
+            dp[i] = 1;
+            for (int j = 0; j < i; j++) {
+                if (arr[j] < arr[i]) {
+                    dp[i] = max(dp[i], 1 + dp[j]);
+                }
+            }
+        }
+	
+	// returns the max element of the array
+        cout << *max_element(dp, dp + n) << endl;
+    }
+    return 0;
+}
+```
+## Word Break (Recursion + Memoization Solution)
 ```cpp
 #inlcude <bits/stdc++.h>
 using namespace std;
