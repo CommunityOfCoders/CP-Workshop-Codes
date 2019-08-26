@@ -353,6 +353,41 @@ int main() {
         H.clear();
         cout << isPossible(s, dict, 0, len) << endl;
     }
-	return 0;
+    return 0;
+}
+```
+## Word Break (Iterative solution)
+```cpp
+#inlcude <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t; cin >> t;
+    while (t--) {
+        int n; cin >> n;
+        vector<string> B(n);
+        for (int i = 0; i < n; i++) {
+            cin >> B[i];
+        }
+        string A; cin >> A;
+        int N = A.length();
+	
+	// solution
+        bool dp[N + 1];
+        memset(dp, 0, sizeof dp);
+        dp[0] = true;
+        
+        for (int i = 1; i <= N; i++) {
+            for (int j = 1; j <= i; j++) {
+                if (dp[j - 1] and find(B.begin(), B.end(), A.substr(j - 1, i - j + 1)) != B.end()) {
+                    dp[i] = true;
+                    break;
+                }
+            }
+        }
+        
+        cout << dp[N] << endl;
+    }
+    return 0;
 }
 ```
