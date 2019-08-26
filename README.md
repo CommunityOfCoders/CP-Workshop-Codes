@@ -342,6 +342,73 @@ int bin_search(int A[], int left, int right, int k)
 }
 
 ```
+## Fast Expo
+```cpp
+#include <iostream>
+using namespace std;
+
+long power(int a, int b, int c){
+    if(b==1) return a;
+    else{
+        long x = power(a, b/2 , c);
+        
+        if(b%2 == 0) return (x*x) % c;
+        else{
+            return (x*x *a) % c;
+        }
+    }
+}
+int main() {
+	int t; cin>>t;
+	while(t--){
+	    int a,b,c; cin>>a>>b>>c;
+	    cout<<power(a,b,c)<<endl;
+	}
+	return 0;
+}
+```
+## sqrt
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+long long int floorSqrt(long long int x);
+  
+//Position this line where user code will be pasted.
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		long long n;
+		cin>>n;
+		cout << floorSqrt(n) << endl;
+	}
+    return 0;   
+}
+// x: element to find square root
+
+long long int getSquare(int val, int lo, int hi) {
+    if (lo == hi) return lo;
+    if (lo + 1 == hi) {
+        if (hi * hi <= val) return hi;
+        return lo;
+    }
+    
+    long long int mid = (lo + hi) / 2;
+
+    if ((mid * mid) > val) {
+        return getSquare(val, lo, mid - 1);
+    } else {
+        return getSquare(val, mid, hi);
+    }
+}
+
+long long int floorSqrt(long long int x) 
+{
+    return getSquare(x, 1, x);
+}
+```
 # Dynamic Programming
 ## Longest Increasing Sub (Iterative Solution)
 ```cpp
