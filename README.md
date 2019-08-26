@@ -1,5 +1,6 @@
 # CP-Workshop-Codes
 
+# Arrays and String
 ## Is Palindrome
 ```cpp
 #include <bits/stdc++.h>
@@ -297,6 +298,61 @@ int main() {
 	        ans += min(left[i], right[i]) - A[i];
 	    cout << ans << endl;
 	}
+	return 0;
+}
+```
+# Dynamic Programming
+## Word Break (Recursion + Memoization solution)
+```cpp
+#inlcude <bits/stdc++.h>
+using namespace std;
+
+// creating a global hash table
+unordered_map<int, bool> H;
+
+bool isPossible(string &s, vector<string> &dict, int index, int &len) {
+    // base case
+    if (index == len) return true;
+    
+    // if value for current index is already calculated return it directly
+    // Memoization
+    if (H.find(index) != H.end()) return H[index];
+    
+    // trying for all words begining with current index
+    for (int i = index; i < len; i++) {
+        string sub = s.substr(index, i - index + 1);
+	
+	// if the word exist in dict
+        if (find(dict.begin(), dict.end(), sub) != dict.end()) {
+	
+ 	    // then check for the remaining part recursively
+            if(isPossible(s, dict, i + 1, len)) {
+	    
+	        // store the curr val in hash table before returning
+                H[index] = true;
+                return true;
+            }
+        }
+    }
+    
+    // store the value in hash table before returning
+    H[index] = false;
+    return false;
+}
+
+int main() {
+    int t; cin >> t;
+    while (t--) {
+        int n; cin >> n;
+        vector<string> dict(n);
+        for (int i = 0; i < n; i++) {
+            cin >> dict[i];
+        }
+        string s; cin >> s;
+        int len = s.length();
+        H.clear();
+        cout << isPossible(s, dict, 0, len) << endl;
+    }
 	return 0;
 }
 ```
